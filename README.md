@@ -1,4 +1,4 @@
-# color-string
+# color-string-es
 
 > library for parsing and generating CSS color strings.
 
