@@ -7,13 +7,13 @@
 With [npm](http://npmjs.org/):
 
 ```console
-$ npm install color-string
+$ npm install color-string-es // <= NOT PUBLISHED YET - 5/27/24
 ```
 
 ## Usage
 
 ```js
-import colorString from "color-string-es";
+import * as colorString from "color-string-es";
 ```
 
 ### Parsing
