@@ -12,7 +12,9 @@ export const toHex = swizzle.wrap((rgba) => {
 });
 
 export const toRGB = swizzle.wrap((rgba) => {
-	const [r, g, b, a] = rgba.map(Math.round);
+	const [r, g, b, _] = rgba.map(Math.round);
+	const a = rgba[3];
+
 	return typeof a === 'undefined' || isNaN(a) || a === 1
 		? `rgb(${r}, ${g}, ${b})`
 		: `rgba(${r}, ${g}, ${b}, ${a})`;
@@ -45,4 +47,6 @@ export const toHWB = swizzle.wrap((hwba) => {
 	return `hwb(${hwba[0]}, ${hwba[1]}%, ${hwba[2]}%${a})`;
 });
 
-export const toKeyword = (rgb) => reverseNames[rgb.slice(0, 3)];
+export const toKeyword = swizzle.wrap(
+	(rgb) => reverseNames[JSON.stringify(rgb)],
+);

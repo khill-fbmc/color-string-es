@@ -3,7 +3,7 @@ import colorNames from 'color-name';
 
 export const reverseNames = Object.entries(colorNames).reduce(
 	(acc, [name, color]) => {
-		acc[`${color}`] = name;
+		acc[JSON.stringify(color)] = name;
 		return acc;
 	},
 	{},

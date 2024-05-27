@@ -1,27 +1,37 @@
 {
   "name": "color-string-es",
+  "version": "1.0.0",
   "description": "Parser and generator for CSS color strings",
-  "version": "1.9.1",
-  "author": "Heather Arthur <fayearthur@gmail.com>",
-  "type": "module",
+  "keywords": [
+    "color",
+    "colour",
+    "rgb",
+    "hex",
+    "hsl",
+    "css"
+  ],
+  "repository": "khill-fbmc/color-string-es",
+  "license": "MIT",
+  "author": "Kevin Hill <kevin.hill@fortunabmc.com>",
   "contributors": [
     "Maxime Thirouin",
     "Dyma Ywanov <dfcreative@gmail.com>",
     "Josh Junon",
     "Kevin Hill"
   ],
-  "repository": "khill-fbmc/color-string-es",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "files": [
+    "./dist/index.js"
+  ],
   "scripts": {
-    "build": "rollup -c",
     "_pretest": "xo",
     "_test": "node ./test/basic.js",
+    "build": "rollup -c",
     "pretest": "npm run build",
     "test": "npx vitest"
   },
-  "license": "MIT",
-  "files": [
-    "index.js"
-  ],
   "xo": {
     "rules": {
       "no-cond-assign": 0,
@@ -43,11 +53,5 @@
     "rollup-plugin-node-externals": "7.1.2",
     "vitest": "1.6.0",
     "xo": "0.58.0"
-  },
-  "keywords": [
-    "color",
-    "colour",
-    "rgb",
-    "css"
-  ]
+  }
 }

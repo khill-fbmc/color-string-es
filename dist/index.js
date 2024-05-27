@@ -200,7 +200,7 @@ const colorNames = {
 
 const reverseNames = Object.entries(colorNames).reduce(
 	(acc, [name, color]) => {
-		acc[`${color}`] = name;
+		acc[JSON.stringify(color)] = name;
 		return acc;
 	},
 	{},
@@ -231,7 +231,9 @@ const toHex = swizzle$1.wrap((rgba) => {
 });
 
 const toRGB = swizzle$1.wrap((rgba) => {
-	const [r, g, b, a] = rgba.map(Math.round);
+	const [r, g, b, _] = rgba.map(Math.round);
+	const a = rgba[3];
+
 	return typeof a === 'undefined' || isNaN(a) || a === 1
 		? `rgb(${r}, ${g}, ${b})`
 		: `rgba(${r}, ${g}, ${b}, ${a})`;
@@ -264,7 +266,9 @@ const toHWB = swizzle$1.wrap((hwba) => {
 	return `hwb(${hwba[0]}, ${hwba[1]}%, ${hwba[2]}%${a})`;
 });
 
-const toKeyword = (rgb) => reverseNames[rgb.slice(0, 3)];
+const toKeyword = swizzle$1.wrap(
+	(rgb) => reverseNames[JSON.stringify(rgb)],
+);
 
 /* MIT license */
 // @ts-check
