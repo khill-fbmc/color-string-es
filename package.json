@@ -1,17 +1,22 @@
 {
-  "name": "color-string",
+  "name": "color-string-es",
   "description": "Parser and generator for CSS color strings",
   "version": "1.9.1",
   "author": "Heather Arthur <fayearthur@gmail.com>",
+  "type": "module",
   "contributors": [
     "Maxime Thirouin",
     "Dyma Ywanov <dfcreative@gmail.com>",
-    "Josh Junon"
+    "Josh Junon",
+    "Kevin Hill"
   ],
-  "repository": "Qix-/color-string",
+  "repository": "khill-fbmc/color-string-es",
   "scripts": {
-    "pretest": "xo",
-    "test": "node test/basic.js"
+    "build": "rollup -c",
+    "_pretest": "xo",
+    "_test": "node ./test/basic.js",
+    "pretest": "npm run build",
+    "test": "npx vitest"
   },
   "license": "MIT",
   "files": [
@@ -20,15 +25,24 @@
   "xo": {
     "rules": {
       "no-cond-assign": 0,
-      "operator-linebreak": 0
+      "operator-linebreak": 0,
+      "quotes": [
+        "error",
+        "double"
+      ]
     }
   },
   "dependencies": {
-    "color-name": "^1.0.0",
-    "simple-swizzle": "^0.2.2"
+    "color-name": "2.0.0",
+    "simple-swizzle": "0.2.2"
   },
   "devDependencies": {
-    "xo": "^0.12.1"
+    "@rollup/plugin-commonjs": "25.0.8",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "rollup": "4.18.0",
+    "rollup-plugin-node-externals": "7.1.2",
+    "vitest": "1.6.0",
+    "xo": "0.58.0"
   },
   "keywords": [
     "color",
