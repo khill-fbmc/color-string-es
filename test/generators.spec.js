@@ -1,5 +1,5 @@
 // @ts-check
-import { describe, test, equal, deepStrictEqual } from './testing.js';
+import { describe, test, equal } from './testing.js';
 
 import * as cs from '../dist/index.js';
 
@@ -32,6 +32,7 @@ describe('generators', () => {
 		equal(cs.toPercentRGB([255, 10, 35], 0.3), 'rgba(100%, 4%, 14%, 0.3)');
 		equal(cs.toPercentRGB([255, 10, 35]), 'rgb(100%, 4%, 14%)');
 	});
+
 	test('toHSL()', () => {
 		equal(cs.toHSL([280, 40, 60]), 'hsl(280, 40%, 60%)');
 		equal(cs.toHSL([280, 40, 60, 0.3]), 'hsla(280, 40%, 60%, 0.3)');
